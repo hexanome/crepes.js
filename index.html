@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>crepes.js</title>
+
+<!-- TODO : - ADD A LIST
+			- ADD A SELECT LIST FOR THE NEXT ROUND -->
+
+<p>
+  <input id='topping' type='text' placeholder='topping'>
+  <input id='addtop' value='+' type='submit' onclick='var top=document.getElementById("topping").value;toppings.push(top);'>
+</p>
+<p>
+  <input id='guest' type='text' placeholder='guest'>	
+  <input id='addeat' value='+' type='submit' onclick='var guest=document.getElementById("guest").value;guests.push(guest);'>
+</p>
+<p id='toplist'></p>
+<p id='guelist'></p>
+<input id='launch' value='Alea jacta est' type='submit' onclick='random()'>
+<h2 id='output'></h2>
+
+<link rel="stylesheet" href="style.css">
+<script>
+	var toppings = [];
+	var guests = [];
+
+	function random() {
+		var numtoppingchose = Math.floor(Math.random()*toppings.length);
+		var numguestchose = Math.floor(Math.random()*guests.length);
+		document.getElementById("output").textContent="The next to eat is: "+toppings[numtoppingchose]+", a crepe of "+guests[numguestchose];
+	}
+</script>
